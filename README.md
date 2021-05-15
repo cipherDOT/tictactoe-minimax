@@ -1,5 +1,5 @@
 # tictactoe-minimax
-tic tac toe board game, with the minmax algorithm implemented
+tic tac toe board game, with the minimax algorithm implemented
 
 The opponent is an Automated System using the minimax algorithm to play against you
 in the most optimal way possible. 
