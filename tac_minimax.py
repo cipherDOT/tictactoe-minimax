@@ -202,6 +202,7 @@ def main():
         if end_state:
             time.sleep(2)
             run = False
+            quit()
 
         # checks if it's the AI's turn and plays accordingly.
         # here the ai is the maximizing player (X player).
@@ -225,9 +226,12 @@ def main():
             board.draw_x(best_move)
             turn += 1
 
+        # ------------event handler---------------------- #
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+                quit()
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 click += 1
@@ -240,23 +244,23 @@ def main():
 
                 turn += 1
 
-                # ----- state analysis for each frame ----- #
+        # ----- state analysis for each frame ----- #
 
-                state = board.state()
+        state = board.state()
 
-                if state == 1:
-                    announce('X')
-                    end_state = True
-                elif state == -1:
-                    announce('O')
-                    end_state = True
-                elif state == 0:
-                    announce('TIE')
-                    end_state = True
-                else:
-                    pass
+        if state == 1:
+            announce('X')
+            end_state = True
+        elif state == -1:
+            announce('O')
+            end_state = True
+        elif state == 0:
+            announce('TIE')
+            end_state = True
+        else:
+            pass
 
-                # ----------------------------------------- #
+        # ----------------------------------------- #
 
         pygame.display.flip()
 
